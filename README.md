@@ -2,7 +2,7 @@
 
 Este projeto GitHub <i>pages</i> tem como objetivo criar uma lista de presentes de casamento online, utilizando HTML e Bootstrap para uma interface responsiva e amigável.
 
-https://depontoaponto.github.io/lista-de-presentes/
+https://priscilamarcos.github.io/lista-de-presentes/
 
 ### Estrutura do Projeto:
 
