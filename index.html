@@ -15,6 +15,13 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.map"></script>
+
+
     <title>Lista de Presentes</title>
 </head>
 
@@ -344,34 +351,80 @@
         </div>
     </div>
 
+    <h1>Dados do JSON</h1>
+    <div id="dados"></div>
+
     <div style="float:right;"><small>for little seal&nbsp;<i class="bi bi-heart-fill">&nbsp;</i></small></div>
 
-
     <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar mudanças</button>
-      </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content ">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>Copie ou escaneio o QR CODE</h4>
+                    <p>Ao copiar o código, abra o seu aplicativo cadastrado no PIX e realize o seu pagamento de forma
+                        rápida</p>
+                    <!--<img src="assets/img/qrCode.png" width="174px" height="174px" alt="pix QR Code"> -->
+                    <div id="qrcode" class="d-flex justify-content-center"></div>
+                </div>
+                <div class="modal-footer">
+
+                    <div class="d-grid gap-2 col-10 mx-auto">
+                        <button class="btn btn-primary btn-lg" type="button" onclick="copiarParaClipboard()">COPIAR
+                            CÓDIGO</button>
+                        <button class="btn btn-link" data-bs-dismiss="modal" type="button">FECHAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+    <script>
+
+        var qrCodeTxt = "https://www.pudim.com.br/";
+
+        $(document).ready(function () {
+
+            let qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: qrCodeTxt, // Conteúdo do QR code
+                width: 174, // Largura do QR code
+                height: 174, // Altura do QR code
+                colorDark: "#000", // Cor dos quadrados pretos
+                colorLight: "#fff", // Cor dos quadrados brancos
+                correctLevel: QRCode.CorrectLevel.H // Nível de correção de erros
+
+            });
+
+
+        });
+
+        async function copiarParaClipboard() {
+            try {
+                await navigator.clipboard.writeText(qrCodeTxt);
+                console.log('Texto copiado para a área de transferência!');
+            } catch (err) {
+                console.error('Falha ao copiar texto: ', err);
+            }
+        }
+
+        fetch('dados-transf.json')
+            .then(response => response.json())
+            .then(data => {
+                const dadosDiv = document.getElementById('dados');
+                dadosDiv.innerHTML = `
+      <p>Nome: ${data.nome}</p>
+      <p>Idade: ${data.idade}</p>
+      <p>Rua: ${data.endereco.rua}</p>
+      <p>Habilidade 1: ${data.habilidades[0]}</p>`;
+            })
+            .catch(error => console.error('Erro ao buscar o arquivo JSON:', error));
+
+    </script>
 
 </body>
-
-<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.map"></script>
 
 </html>
