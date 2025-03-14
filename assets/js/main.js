@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
     try {
+        populate();
 
         let dados = carregaJsonFile();
 
@@ -38,7 +39,7 @@ $(document).ready(function () {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <h4>Copie ou escan o QR CODE</h4>
+                            <h4>Copie ou escaneie o QR CODE</h4>
                             <p>Ao copiar o código, abra o seu aplicativo cadastrado no PIX e realize o seu pagamento de forma
                                 rápida</p>
                             <div id="qrcode-${item.id}" class="d-flex justify-content-center"></div>
@@ -46,28 +47,28 @@ $(document).ready(function () {
                         <div class="modal-footer">
 
                             <div class="d-grid gap-2 col-10 mx-auto">
-                                <button class="btn btn-primary btn-lg" type="button" onclick="copiarParaClipboard('${item.qrCode}')">COPIAR
+                                <button class="btn btn-primary btn-lg" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" onclick="copiarParaClipboard('${item.qrCode}')">COPIAR
                                     CÓDIGO</button>
-                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                                <button class="btn btn-link" data-bs-dismiss="modal" type="button">FECHAR</button>
+                                <button class="btn btn-light" data-bs-dismiss="modal" type="button">FECHAR</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered ">
                 <div class="modal-content">
                 <div class="modal-header text-center">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
                     <h4>Código copiado</h4>
-                     <p>Hide this modal and show the first with the button below.</p>
+                    <p>
+                    <p>Abra o aplicativo cadastrado no PIX e realize o seu pagamento.</p>
                 </div>
                 <div class="modal-footer">
                 <div class="d-grid gap-2 col-10 mx-auto">
-                    <button class="btn btn-primary" data-bs-dismiss="modal" type="button">FECHAR</button>
+                    <button class="btn btn-primary btn-lg" data-bs-dismiss="modal" type="button">OK</button>
                 </div>
                 </div>
                 </div>
@@ -112,9 +113,21 @@ async function copiarParaClipboard(qrCodeTxt) {
     }
 }
 
-function cleanQrCodeDiv(idQrCode){
-    
-}
+
+async function populate() {
+
+
+    fetch('dados-transf.json')
+  .then(response => response.text())
+  .then(text => {
+    const array = JSON.parse(superHeroesText);
+    console.log(array);
+  })
+
+
+  }
+
+
 function carregaJsonFile() {
 
     let dados = [{
