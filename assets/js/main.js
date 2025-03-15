@@ -1,13 +1,16 @@
 
+
+import { getDadosJson } from 'dados-transf.js';
+
 $(document).ready(function () {
 
+    
     try {
-        populate();
 
-        let dados = carregaJsonFile();
-
+        // arquivo principal.js
+        
         /*Build a gift list*/
-        var listaHTML = dados.map(item => `
+        var listaHTML = getDadosJson().map(item => `
             <div class="col-md-4 m-b-20" draggable="false">
                 <div class="card-sub">
                     <img class="card-img-top img-fluid" src="${item.imgFile}" alt="Card image cap">
@@ -114,76 +117,22 @@ async function copiarParaClipboard(qrCodeTxt) {
 }
 
 
-async function populate() {
+async function carregaClassFileOn() { //nome com sugestao da foks
 
+    const requestURL = 'https://raw.githubusercontent.com/priscilamarcos/lista-de-presentes/refs/heads/main/assets/service/dados-transf.json';
+    
+    try {
+        const request = new Request(requestURL);
+        const response = await fetch(request);
+        const superHeroesText = await response.text();
+        const dados = JSON.parse(superHeroesText);
+        console.log(dados);
 
-    fetch('dados-transf.json')
-  .then(response => response.text())
-  .then(text => {
-    const array = JSON.parse(superHeroesText);
-    console.log(array);
-  })
+        return dados;
 
+    } catch (error) {
+        console.error('Falha ao carregar URL: ', error);
 
-  }
-
-
-function carregaJsonFile() {
-
-    let dados = [{
-        id:"1",
-        imgFile: "./assets/img/lista-idosa.jpeg",
-        titulo: "Titulo 1",
-        descricao: "Ao usar innerHTML, esteja ciente dos riscos de segurança se o conteúdo HTML.",
-        valor: "10,01",
-        qrCode: "http://wwwrrrgggbbb.com",
-        ativo: "true"
-    },
-    {
-        id:"2",
-        imgFile: "./assets/img/lista-idoso.jpeg",
-        titulo: "Titulo 2",
-        descricao: "Ao usar innerHTML, esteja ciente dos riscos de segurança se o conteúdo HTML.",
-        valor: "20,02",
-        qrCode: "http://endlesshorse.com",
-        ativo: "true"
-    },
-    {
-        id:"3",
-        imgFile: "./assets/img/lista-idosa.jpeg",
-        titulo: "Titulo 3",
-        descricao: "Ao usar innerHTML, esteja ciente dos riscos de segurança se o conteúdo HTML.",
-        valor: "30,03",
-        qrCode: "https://cat-bounce.com/",
-        ativo: "true"
-    },
-    {
-        id:"4",
-        imgFile: "./assets/img/lista-idoso.jpeg",
-        titulo: "Titulo 4",
-        descricao: "Ao usar innerHTML, esteja ciente dos riscos de segurança se o conteúdo HTML.",
-        valor: "40,04",
-        qrCode: "https://pointerpointer.com/",
-        ativo: "true"
-    },
-    {
-        id:"5",
-        imgFile: "./assets/img/lista-idosa.jpeg",
-        titulo: "Titulo 5",
-        descricao: "Ao usar innerHTML, esteja ciente dos riscos de segurança se o conteúdo HTML.",
-        valor: "50,05",
-        qrCode: "https://www.pixelthoughts.co/",
-        ativo: "true"
-    },
-    {
-        id:"6",
-        imgFile: "./assets/img/lista-idoso.jpeg",
-        titulo: "Titulo 6",
-        descricao: "Ao usar innerHTML, esteja ciente dos riscos de segurança se o conteúdo HTML.",
-        valor: "60,06",
-        qrCode: "https://www.koalastothemax.com/",
-        ativo: "true"
     }
-    ];
-    return dados;
+    return "";
 }
