@@ -91,3 +91,8 @@ em {
 
     border-bottom:none !important;
 }
+
+.card-img-top{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}

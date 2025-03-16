@@ -1,32 +1,28 @@
-export function getDadosJson() {
-    return _dadosJson;
-}
-
 const _dadosJson = [{
 
     "id": "1",
-    "imgFile": "./assets/img/lista-idosa.jpeg",
-    "titulo": "Titulo Item1",
-    "descrição": "Descrição",
-    "valor": "10,01",
-    "qrCode": "http://wwwrrrgggbbb.com",
+    "imgFile": "./assets/img/20-reais.jpg",
+    "titulo": "Fintchy Reais",
+    "descricao": "Só para não dizer que não dei nada kkk",
+    "valor": "20",
+    "qrCode": "20 reais",
     "ativo": "true"
 },
 {
     "id": "2",
-    "imgFile": "./assets/img/lista-idosa.jpeg",
-    "titulo": "Titulo Item1",
-    "descrição": "Descrição",
-    "valor": "10,01",
-    "qrCode": "http://wwwrrrgggbbb.com",
+    "imgFile": "./assets/img/50-reais.jpg",
+    "titulo": "Toma 50 reais",
+    "descricao": "Para comprar o que satifaz",
+    "valor": "50",
+    "qrCode": "50 reais",
     "ativo": "true"
 },
 {
     "id": "3",
-    "imgFile": "./assets/img/lista-idosa.jpeg",
-    "titulo": "Titulo Item1",
-    "descrição": "Descrição",
-    "valor": "10,01",
+    "imgFile": "./assets/img/75-reais.jpg",
+    "titulo": "Caneca para noivos",
+    "descricao": "Uma ótima mensagem para recém casados",
+    "valor": "75",
     "qrCode": "http://wwwrrrgggbbb.com",
     "ativo": "true"
 },
@@ -129,4 +125,3 @@ const _dadosJson = [{
     "qrCode": "http://wwwrrrgggbbb.com",
     "ativo": "true"
 }]
-

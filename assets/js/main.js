@@ -1,16 +1,9 @@
-
-
-import { getDadosJson } from 'dados-transf.js';
-
 $(document).ready(function () {
 
-    
     try {
 
-        // arquivo principal.js
-        
         /*Build a gift list*/
-        var listaHTML = getDadosJson().map(item => `
+        var listaHTML = _dadosJson.map(item => `
             <div class="col-md-4 m-b-20" draggable="false">
                 <div class="card-sub">
                     <img class="card-img-top img-fluid" src="${item.imgFile}" alt="Card image cap">
@@ -18,7 +11,7 @@ $(document).ready(function () {
                         <h4 class="card-title">${item.titulo}</h4>
                         <p class="card-text">${item.descricao}</p>
                         <div class="col text-center">
-                            <p>R$${item.valor}</p>
+                            <p>R$<em>${item.valor}</em>,00</p>
                             <!-- Button trigger modal -->
                             <div class="d-grid gap-2">
                                 
@@ -33,7 +26,7 @@ $(document).ready(function () {
         document.getElementById("listaProdutos").insertAdjacentHTML("afterend", listaHTML);
 
         /*Build a modal List*/
-        listaHTML = dados.map(item => `
+        listaHTML = _dadosJson.map(item => `
             <div class="modal fade" id="modal${item.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered ">
                     <div class="modal-content ">
@@ -117,22 +110,22 @@ async function copiarParaClipboard(qrCodeTxt) {
 }
 
 
-async function carregaClassFileOn() { //nome com sugestao da foks
+// async function carregaClassFileOn() { //nome com sugestao da foks
 
-    const requestURL = 'https://raw.githubusercontent.com/priscilamarcos/lista-de-presentes/refs/heads/main/assets/service/dados-transf.json';
+//     const requestURL = 'https://raw.githubusercontent.com/priscilamarcos/lista-de-presentes/refs/heads/main/assets/service/dados-transf.json';
     
-    try {
-        const request = new Request(requestURL);
-        const response = await fetch(request);
-        const superHeroesText = await response.text();
-        const dados = JSON.parse(superHeroesText);
-        console.log(dados);
+//     try {
+//         const request = new Request(requestURL);
+//         const response = await fetch(request);
+//         const superHeroesText = await response.text();
+//         const dados = JSON.parse(superHeroesText);
+//         console.log(dados);
 
-        return dados;
+//         return dados;
 
-    } catch (error) {
-        console.error('Falha ao carregar URL: ', error);
+//     } catch (error) {
+//         console.error('Falha ao carregar URL: ', error);
 
-    }
-    return "";
-}
+//     }
+//     return "";
+// }

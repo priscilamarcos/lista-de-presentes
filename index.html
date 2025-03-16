@@ -17,6 +17,35 @@
 </head>
 
 <body>
+    <!-- Vertically Centered Cookies Modal -->
+
+    <div class="modal fade" id="onload" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered  modal-lg">
+            <div class="modal-content">
+            <div class="modal-header" style="display: block;">
+                <h3 class="modal-title text-center">Bem-vindos à nossa lista de presentes!</h3>
+         </div>
+            <div class="modal-body text-center ">
+                <img src="assets/img/modal-image.png">
+
+                <p style="text-align: justify;">Sabemos que vocês, nossos queridos convidados, estão ansiosos 
+                    para nos presentear com algo que realmente expresse o quanto vocês nos 
+                    amam! (e o quanto querem se livrar do constrangimento de dar um presente sem graça).</p>
+                    
+                <p style="text-align: justify;">Mas, falando sério...
+                Ficamos muito felizes com a presença de vocês. Afinal, a melhor parte da festa é ter todos os nossos 
+                amigos e familiares reunidos. Então, venham com o coração aberto e a carteira... 
+                bem, aí fica a critério de vocês!</p>
+            </div>
+            <div class="modal-footer">
+            <div class="d-grid gap-2 col-12 mx-auto">
+                
+                <button class="btn btn-primary btn-lg" data-bs-dismiss="modal" type="button">Vamos lá!</button>
+            </div>
+            </div>
+            </div>
+        </div>
+        </div>
 
     <div class="page-content page-container" id="page-content">
         <div class="padding">
@@ -30,7 +59,9 @@
                                 <h1 class="card-header-text text-center"
                                     style="color: white; padding-top: 10px; padding-bottom: 10px; font-weight: bold;">
                                     Lista de Presentes</h1>
+                                    
                             </div>
+                            
                         </div>
                         <div class="card-block">
                             <div class="row" id="sortable">
@@ -40,10 +71,13 @@
                         </div>
                     </div>
                     <!-- Draggable Without Images card end -->
+
                 </div>
             </div>
         </div>
     </div>
+
+    
 
     <div style="float:right;"><small>for little seal&nbsp;<i class="bi bi-heart-fill">&nbsp;</i></small></div>
 
@@ -60,6 +94,15 @@
     <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.map"></script>
 
     <script src="./assets/js/main.js"></script>
+
+    <script src="./assets/constant/present-lista.js"></script>
+
+    <script type="text/javascript">
+        window.onload = () => {
+          const myModal = new bootstrap.Modal('#onload');
+          myModal.show();
+        }
+    </script>
 
 </body>
 
