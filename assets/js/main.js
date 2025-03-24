@@ -45,7 +45,7 @@ $(document).ready(function () {
                             <div class="d-grid gap-2 col-10 mx-auto">
                                 <button class="btn btn-primary btn-lg" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" onclick="copiarParaClipboard('${item.qrCode}')">COPIAR
                                     CÓDIGO</button>
-                                <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js" data-preference-id="179756848-9a496319-5f76-4992-b1e6-7552792ab21f" data-source="button"></script>
+                               
                                 <button class="btn btn-light" data-bs-dismiss="modal" type="button">FECHAR</button>
                             </div>
                         </div>
@@ -59,6 +59,11 @@ $(document).ready(function () {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" src="https://www.mercadopago.com.br/checkout/v1/modal/?preference-id=179756848-9a496319-5f76-4992-b1e6-7552792ab21f&amp;source=button&amp;from-widget=true" allowfullscreen></iframe>
+                    </div>
+                
                     <h4>Código copiado</h4>
                     <p>
                     <p>Abra o aplicativo cadastrado no PIX e realize o seu pagamento.</p>
