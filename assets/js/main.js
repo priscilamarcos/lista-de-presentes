@@ -1,15 +1,17 @@
 $(document).ready(function () {
 
     try {
-
+        //let shuffledArray = shuffleArray(_dadosJson);
+        let shuffledArray = _dadosJson;
         /*Build a gift list*/
-        var listaHTML = _dadosJson.map(item => `
+        var listaHTML = shuffledArray.map(item => `
             <div class="col-md-4 m-b-20" draggable="false">
                 <div class="card-sub">
+            
                     <img class="card-img-top img-fluid" src="${item.imgFile}" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">${item.titulo}</h4>
-                        <p class="card-text">${item.descricao}</p>
+                    <div class="card-block text-center" style="background-color: #e3e3e345">
+                       <h5 class="card-title">${item.titulo}</h5>
+                        <p class="card-text" style="min-height: 80px;">${item.descricao}</p>
                         <div class="col text-center">
                             <p>R$<em>${item.valor}</em>,00</p>
                             <!-- Button trigger modal -->
@@ -109,6 +111,13 @@ async function copiarParaClipboard(qrCodeTxt) {
     }
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Destructuring assignment for swapping
+    }
+    return array;
+  }
 
 // async function carregaClassFileOn() { //nome com sugestao da foks
 
