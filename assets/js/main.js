@@ -78,9 +78,6 @@ $(document).ready(function () {
 
           `).join('');
         document.getElementById("listaModal").insertAdjacentHTML("afterend", listaHTML);
-   document.querySelector("button[class='mercadopago-button']").style.width='auto';
-  document.querySelector("button[class='mercadopago-button']").style.fontSize='15px';
-  document.querySelector("button[class='mercadopago-button']").textContent='Pagar via Mercado Pago';
 
     } catch (err) {
         console.error('Falha ao gerar QR Code: ', err);
