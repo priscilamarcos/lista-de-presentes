@@ -60,9 +60,8 @@ $(document).ready(function () {
                 </div>
                 <div class="modal-body text-center">
 
-                    <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" src="https://www.mercadopago.com.br/checkout/v1/modal/?preference-id=179756848-9a496319-5f76-4992-b1e6-7552792ab21f&amp;source=button&amp;from-widget=true" allowfullscreen></iframe>
-                    </div>
+                   <iframe id="mercadopago-checkout" src="https://www.mercadopago.com.br/checkout/v1/modal/?preference-id=179756848-9a496319-5f76-4992-b1e6-7552792ab21f&amp;source=button&amp;from-widget=true" width="100%" height="100%" style="z-index:1;display:block;position:fixed;left:0;top:0;" frameborder="0" transition="height 2s ease"></iframe>
+
                 
                     <h4>Código copiado</h4>
                     <p>
