@@ -59,13 +59,15 @@ $(document).ready(function () {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-
-                   <iframe id="mercadopago-checkout" src="https://www.mercadopago.com.br/checkout/v1/modal/?preference-id=179756848-9a496319-5f76-4992-b1e6-7552792ab21f&amp;source=button&amp;from-widget=true" width="100%" height="100%" style="z-index:1;display:block;position:fixed;left:0;top:0;" frameborder="0" transition="height 2s ease"></iframe>
-
                 
                     <h4>Código copiado</h4>
                     <p>
                     <p>Abra o aplicativo cadastrado no PIX e realize o seu pagamento.</p>
+
+                    <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js" 
+                    data-preference-id="179756848-e107a013-df9a-46fc-acae-7239dc9189a2" data-source="button">
+                    </script>
+                    
                 </div>
                 <div class="modal-footer">
                 <div class="d-grid gap-2 col-10 mx-auto">
@@ -78,6 +80,9 @@ $(document).ready(function () {
 
           `).join('');
         document.getElementById("listaModal").insertAdjacentHTML("afterend", listaHTML);
+        document.querySelector("button[class='mercadopago-button']").style.width='auto';
+        document.querySelector("button[class='mercadopago-button']").style.fontSize='15px';
+        document.querySelector("button[class='mercadopago-button']").textContent='Pagar via Mercado Pago';
 
     } catch (err) {
         console.error('Falha ao gerar QR Code: ', err);
