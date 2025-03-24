@@ -49,14 +49,6 @@ $(document).ready(function () {
                                 <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
 data-preference-id="179756848-9a496319-5f76-4992-b1e6-7552792ab21f" data-source="button">
 </script>
-<p><label>Teste 2</label><input type="text" name="texto2"/>
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-   document.querySelector("button[class='mercadopago-button']").style.width='auto';
-  document.querySelector("button[class='mercadopago-button']").style.fontSize='15px';
-  document.querySelector("button[class='mercadopago-button']").textContent='Pagar via Mercado Pago'
-});
                                 <button class="btn btn-light" data-bs-dismiss="modal" type="button">FECHAR</button>
                             </div>
                         </div>
@@ -85,6 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
           `).join('');
         document.getElementById("listaModal").insertAdjacentHTML("afterend", listaHTML);
+
+   document.querySelector("button[class='mercadopago-button']").style.width='auto';
+  document.querySelector("button[class='mercadopago-button']").style.fontSize='15px';
+  document.querySelector("button[class='mercadopago-button']").textContent='Pagar via Mercado Pago';
 
     } catch (err) {
         console.error('Falha ao gerar QR Code: ', err);
